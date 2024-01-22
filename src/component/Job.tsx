@@ -1,7 +1,11 @@
-import React from "react";
+import { JobData } from "./JobsList";
 
-const Job = () => {
-  return <div>Job</div>;
+interface Props {
+  job: JobData;
+}
+
+const Job = ({ job }: Props) => {
+  return <div>{job.company}</div>;
 };
 
 export default Job;

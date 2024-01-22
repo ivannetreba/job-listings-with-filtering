@@ -116,3 +116,10 @@ a {
   background-image: url('./assets/bg-header-desktop.svg');
 }
 
+.job-list {
+  background-color: var(--light-grayish-cyan-background);
+  padding: 76px 165px;
+  height: 100vh;
+  width: 100vw;
+}
+

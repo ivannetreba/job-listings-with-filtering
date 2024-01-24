@@ -13,6 +13,8 @@
   --light-grayish-cyan-filter-tablets: hsl(180, 31%, 95%);
   --dark-grayish-cyan: hsl(180, 8%, 52%);
   --very-dark-grayish-cyan: hsl(180, 14%, 20%);
+  --white: #fff;
+  --black: #000;
 }
 
 /* Box sizing rules */
@@ -112,14 +114,86 @@ a {
 .header {
   background-color: var(--desaturated-dark-cyan);
   height: 130px;
-  width: 100%;
+  width: 100vw;
   background-image: url('./assets/bg-header-desktop.svg');
 }
 
 .job-list {
   background-color: var(--light-grayish-cyan-background);
   padding: 76px 165px;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
 }
 
+.job {
+  background-color: var(--white);
+  margin: 40px 24px;
+  position: relative;
+  padding: 32px 24px 27px;
+}
+.job__logo {
+  position: absolute;
+  top: -24px;
+  width: 48px;
+}
+.job__description-box {
+  border-bottom: 1px solid #B7C4C4;
+}
+.job__company-line {
+  margin: 8px 0 9px;
+}
+.job__company {
+  color: var(--desaturated-dark-cyan);
+  font-family: var(--font-family);
+  font-size: 1.3rem;
+  font-weight: var(--weight-bold);
+  margin-right: 29px;
+  padding: 7px 0 4px;
+}
+.job__status {
+  border-radius: 12px;
+  font-size: 1.4rem;
+  font-weight: var(--weight-bold);
+  letter-spacing: -0.108px;
+  margin-right: 8px;
+  padding: 7px 8px 4px;
+  text-transform: uppercase;
+}
+.job__status--cyan {
+  background-color: var(--desaturated-dark-cyan);
+  color: var(--white);
+}
+.job__status--black {
+  background-color: var(--black);
+  color: var(--white);
+}
+.job__position {
+  margin: 9px 0;
+}
+.job__details-box {
+  margin: 9px 0 15px;
+}
+.job__detail {
+  color: var(--dark-grayish-cyan);
+  font-size: 1.6rem;
+  font-family: var(--font-family);
+  font-weight: var(--weight-basic);
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.123px;
+}
+.job__requirements-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+.job__requirement {
+  background-color: var(--light-grayish-cyan-filter-tablets);
+  border-radius: 4px;
+  color: var(--desaturated-dark-cyan);
+  font-size: 1.6rem;
+  font-weight: var(--weight-bold);
+  letter-spacing: -0.123px;
+  line-height: 24px; /* 150% */
+  margin-right: 18px;
+  padding: 9px 10px 6px;
+  margin-top: 16px;
+}

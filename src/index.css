@@ -169,11 +169,18 @@ a {
   color: var(--white);
 }
 .job__status--black {
-  background-color: var(--black);
+  background-color: var(--very-dark-grayish-cyan);
   color: var(--white);
 }
 .job__position {
+  color: var(--very-dark-grayish-cyan);
+  font-size: 1.5rem;
+  font-weight: var(--weight-bold);
   margin: 9px 0;
+  line-height: 24px;
+}
+.job__position:hover {
+  color: var(--desaturated-dark-cyan);
 }
 .job__details-box {
   display: flex;
@@ -210,6 +217,10 @@ a {
   margin-right: 18px;
   padding: 9px 10px 6px;
   margin-top: 16px;
+}
+.job__requirement:hover {
+  background-color: var(--desaturated-dark-cyan);
+  color: var(--white);
 }
 
 @media screen and (min-width: 1160px) {

@@ -2,9 +2,10 @@ import { JobData } from "./JobsList";
 
 interface Props {
   job: JobData;
+  filterItems: (filter: string) => void;
 }
 
-const Job = ({ job }: Props) => {
+const Job = ({ job, filterItems }: Props) => {
   const jobClasses = job.new ? "job job__highlight" : "job";
 
   return (
@@ -22,23 +23,45 @@ const Job = ({ job }: Props) => {
             )}
           </p>
           <p className="job__position">{job.position}</p>
-          <p className="job__details-box">
+          <div className="job__details-box">
             <span className="job__detail">{job.postedAt}</span>
             <div className="job__dot"></div>
             <span className="job__detail">{job.contract}</span>
             <div className="job__dot"></div>
             <span className="job__detail">{job.location}</span>
-          </p>
+          </div>
         </div>
       </div>
       <div className="job__requirements-box">
-        <span className="job__requirement">{job.role}</span>
-        <span className="job__requirement">{job.level}</span>
+        <span
+          onClick={() => filterItems(job.role)}
+          className="job__requirement"
+        >
+          {job.role}
+        </span>
+        <span
+          onClick={() => filterItems(job.level)}
+          className="job__requirement"
+        >
+          {job.level}
+        </span>
         {job.tools.map((tool) => (
-          <span className="job__requirement">{tool}</span>
+          <span
+            onClick={() => filterItems(tool)}
+            key={tool}
+            className="job__requirement"
+          >
+            {tool}
+          </span>
         ))}
         {job.languages.map((language) => (
-          <span className="job__requirement">{language}</span>
+          <span
+            onClick={() => filterItems(language)}
+            key={language}
+            className="job__requirement"
+          >
+            {language}
+          </span>
         ))}
       </div>
     </article>

@@ -17,11 +17,15 @@ export interface JobData {
   tools: string[];
 }
 
-const JobsList = () => {
+interface Props {
+  filterItems: (filter: string) => void;
+}
+
+const JobsList = ({ filterItems }: Props) => {
   return (
     <div className="job-list">
       {jobsDataArray.map((job: JobData) => (
-        <Job key={job.id} job={job} />
+        <Job key={job.id} job={job} filterItems={filterItems} />
       ))}
     </div>
   );

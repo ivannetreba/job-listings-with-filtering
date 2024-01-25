@@ -2,18 +2,19 @@ import { FilterItem } from "../App";
 
 interface Props {
   filterItems: FilterItem;
+  deleteFilterItem: (filter: string) => void;
 }
 
-const FilterBox = ({ filterItems }: Props) => {
+const FilterBox = ({ filterItems, deleteFilterItem }: Props) => {
   if (filterItems.length === 0) return;
 
   return (
     <div>
       {filterItems.length > 0 &&
         filterItems.map((filter: string) => (
-          <p>
+          <p key={filter}>
             {filter}
-            <button>X</button>
+            <button onClick={() => deleteFilterItem(filter)}>X</button>
           </p>
         ))}
       <button>Clear</button>

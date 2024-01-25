@@ -1,3 +1,4 @@
+import { FilterItem } from "../App";
 import jobsDataArray from "../data/data.json";
 import Job from "./Job";
 
@@ -19,12 +20,24 @@ export interface JobData {
 
 interface Props {
   filterItems: (filter: string) => void;
+  filterArray: FilterItem;
 }
 
-const JobsList = ({ filterItems }: Props) => {
+const JobsList = ({ filterItems, filterArray }: Props) => {
+  const filteredJobsData = jobsDataArray.filter((job) => {
+    return filterArray.every((value) => {
+      return (
+        job.role.includes(value) ||
+        job.level.includes(value) ||
+        job.languages.includes(value) ||
+        job.tools.includes(value)
+      );
+    });
+  });
+
   return (
     <div className="job-list">
-      {jobsDataArray.map((job: JobData) => (
+      {filteredJobsData.map((job: JobData) => (
         <Job key={job.id} job={job} filterItems={filterItems} />
       ))}
     </div>

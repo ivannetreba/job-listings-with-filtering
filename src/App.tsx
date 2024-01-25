@@ -16,9 +16,17 @@ function App() {
   return (
     <div>
       <Header />
-      <FilterBox filterItems={filterItems} />
+      <FilterBox
+        filterItems={filterItems}
+        deleteFilterItem={(deletedFilter) =>
+          setFilterItems(
+            filterItems.filter((filter: string) => filter !== deletedFilter)
+          )
+        }
+      />
       <JobsList
         filterItems={(filter) => setFilterItems([...filterItems, filter])}
+        filterArray={filterItems}
       />
     </div>
   );

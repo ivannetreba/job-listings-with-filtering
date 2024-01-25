@@ -3,9 +3,14 @@ import { FilterItem } from "../App";
 interface Props {
   filterItems: FilterItem;
   deleteFilterItem: (filter: string) => void;
+  clearFilterBox: () => void;
 }
 
-const FilterBox = ({ filterItems, deleteFilterItem }: Props) => {
+const FilterBox = ({
+  filterItems,
+  deleteFilterItem,
+  clearFilterBox,
+}: Props) => {
   if (filterItems.length === 0) return;
 
   return (
@@ -17,7 +22,7 @@ const FilterBox = ({ filterItems, deleteFilterItem }: Props) => {
             <button onClick={() => deleteFilterItem(filter)}>X</button>
           </p>
         ))}
-      <button>Clear</button>
+      <button onClick={clearFilterBox}>Clear</button>
     </div>
   );
 };

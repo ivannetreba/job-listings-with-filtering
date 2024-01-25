@@ -1,6 +1,4 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import Header from "./component/Header";
 import JobsList from "./component/JobsList";
@@ -23,6 +21,7 @@ function App() {
             filterItems.filter((filter: string) => filter !== deletedFilter)
           )
         }
+        clearFilterBox={() => setFilterItems([])}
       />
       <JobsList
         filterItems={(filter) => setFilterItems([...filterItems, filter])}

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap');
-@import bgHeaderDesctop from "../assets/bg-header-desctop.svg";
-@import bgHeaderMobile from "../assets/bg-header-mobile.svg";
+@import bgHeaderDesctop from "./assets/bg-header-desctop.svg";
+@import bgHeaderMobile from "./assets/bg-header-mobile.svg";
 
 :root {
   --font-family: 'League Spartan', sans-serif;

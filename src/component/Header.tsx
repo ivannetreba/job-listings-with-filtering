@@ -1,8 +1,5 @@
-import bgHeaderDesctop from "../assets/bg-header-desctop.svg";
-import bgHeaderMobile from "../assets/bg-header-mobile.svg";
-
 const Header = () => {
-  return <div className="header"></div>;
+  return <div className="header"><img src= /></div>;
 };
 
 export default Header;

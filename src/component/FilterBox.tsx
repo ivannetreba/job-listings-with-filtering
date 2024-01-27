@@ -1,7 +1,5 @@
-import { FilterItem } from "./JobsList";
-
 interface Props {
-  filterItems: FilterItem;
+  filterItems: string[];
   deleteFilterItem: (filter: string) => void;
   clearFilterBox: () => void;
 }
@@ -20,14 +18,14 @@ const FilterBox = ({
     <div className={filterBoxClasses}>
       <div className="filter-box__items">
         {filterItems.length > 0 &&
-          filterItems.map((filter: string) => (
+          filterItems.map((filter) => (
             <div key={filter} className="filter-box__item">
               <p className="job__requirement filter-box__filter">{filter}</p>
               <button
                 className="filter-box__delete job__status--cyan"
                 onClick={() => deleteFilterItem(filter)}
               >
-                <img src="./src/assets/icon-remove.svg" />
+                <img src="./src/assets/icon-remove.svg" alt="Remove" />
               </button>
             </div>
           ))}

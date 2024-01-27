@@ -19,20 +19,16 @@ export interface JobData {
   tools: string[];
 }
 
-export interface FilterItem {
-  filterItems: string[];
-}
-
 const JobsList = () => {
-  const [filterItems, setFilterItems] = useState<FilterItem>([] as FilterItem);
+  const [filterItems, setFilterItems] = useState<string[]>([]);
 
-  const filteredJobsData = jobsDataArray.filter((job) => {
-    return filterItems.every((value) => {
+  const filteredJobsData = jobsDataArray.filter((job: JobData) => {
+    return filterItems.every((filterItem) => {
       return (
-        job.role.includes(value) ||
-        job.level.includes(value) ||
-        job.languages.includes(value) ||
-        job.tools.includes(value)
+        job.role === filterItem ||
+        job.level === filterItem ||
+        job.languages.includes(filterItem) ||
+        job.tools.includes(filterItem)
       );
     });
   });
@@ -44,7 +40,7 @@ const JobsList = () => {
           filterItems={filterItems}
           deleteFilterItem={(deletedFilter) =>
             setFilterItems(
-              filterItems.filter((filter: string) => filter !== deletedFilter)
+              filterItems.filter((filter) => filter !== deletedFilter)
             )
           }
           clearFilterBox={() => setFilterItems([])}
@@ -54,12 +50,11 @@ const JobsList = () => {
             <Job
               key={job.id}
               job={job}
-              filterItems={(filter) => {
+              filterItems={(filter: string) => {
                 if (!filterItems.includes(filter)) {
                   setFilterItems([...filterItems, filter]);
                 }
               }}
-              filterArray={filterItems}
             />
           ))}
         </div>

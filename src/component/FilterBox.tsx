@@ -1,3 +1,5 @@
+import iconRemove from './assets/icon-remove.png'; 
+
 interface Props {
   filterItems: string[];
   deleteFilterItem: (filter: string) => void;
@@ -25,7 +27,7 @@ const FilterBox = ({
                 className="filter-box__delete job__status--cyan"
                 onClick={() => deleteFilterItem(filter)}
               >
-                <img src="./src/assets/icon-remove.svg" alt="Remove" />
+                <img src={iconRemove} alt="Remove" />
               </button>
             </div>
           ))}

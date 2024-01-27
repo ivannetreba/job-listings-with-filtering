@@ -1,6 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap');
-@import bgHeaderDesctop from "./assets/bg-header-desctop.svg";
-@import bgHeaderMobile from "./assets/bg-header-mobile.svg";
 
 :root {
   --font-family: 'League Spartan', sans-serif;
@@ -119,7 +117,7 @@ body {
   background-color: var(--desaturated-dark-cyan);
   height: 130px;
   width: 100vw;
-  background-image: url(bgHeaderMobile);
+  background-image: url('./assets/bg-header-mobile.svg');
 }
 .job-list {
   position: relative;
@@ -234,7 +232,7 @@ body {
 
 @media screen and (min-width: 1160px) {
   .header {
-    background-image: url(bgHeaderDesctop);
+    background-image: url('./assets/bg-header-desctop.svg');
   }
   .job {
     display: flex;

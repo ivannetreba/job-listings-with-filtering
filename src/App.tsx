@@ -9,5 +9,5 @@ function App() {
     </div>
   );
 }
-// Update header photo for mobile
+
 export default App;

@@ -117,7 +117,7 @@ body {
   background-color: var(--desaturated-dark-cyan);
   height: 130px;
   width: 100vw;
-  background-image: url('./assets/bg-header-desktop.svg');
+  background-image: url('./assets/bg-header-mobile.svg');
 }
 .job-list {
   position: relative;
@@ -231,6 +231,9 @@ body {
 }
 
 @media screen and (min-width: 1160px) {
+  .header {
+    background-image: url('./assets/bg-header-desktop.svg');
+  }
   .job {
     display: flex;
     justify-content: space-between;

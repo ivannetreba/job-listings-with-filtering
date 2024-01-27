@@ -17,7 +17,7 @@
   {
     "id": 2,
     "company": "Manage",
-    "logo": "./src/assets/manage.svg",
+    "logo": "src/assets/manage.svg",
     "new": true,
     "featured": true,
     "position": "Fullstack Developer",
@@ -32,7 +32,7 @@
   {
     "id": 3,
     "company": "Account",
-    "logo": "./src/assets/account.svg",
+    "logo": "../assets/account.svg",
     "new": true,
     "featured": false,
     "position": "Junior Frontend Developer",

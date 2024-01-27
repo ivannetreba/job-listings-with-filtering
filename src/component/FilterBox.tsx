@@ -1,4 +1,4 @@
-import iconRemove from '../assets/icon-remove.png'; 
+import iconRemove from '../assets/icon-remove.svg'; 
 
 interface Props {
   filterItems: string[];

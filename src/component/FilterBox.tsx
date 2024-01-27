@@ -1,4 +1,4 @@
-import { FilterItem } from "../App";
+import { FilterItem } from "./JobsList";
 
 interface Props {
   filterItems: FilterItem;
@@ -11,18 +11,30 @@ const FilterBox = ({
   deleteFilterItem,
   clearFilterBox,
 }: Props) => {
-  if (filterItems.length === 0) return;
+  const filterBoxClasses =
+    filterItems.length > 0
+      ? "job filter-box"
+      : "job filter-box filter-box--hidden";
 
   return (
-    <div>
-      {filterItems.length > 0 &&
-        filterItems.map((filter: string) => (
-          <p key={filter}>
-            {filter}
-            <button onClick={() => deleteFilterItem(filter)}>X</button>
-          </p>
-        ))}
-      <button onClick={clearFilterBox}>Clear</button>
+    <div className={filterBoxClasses}>
+      <div className="filter-box__items">
+        {filterItems.length > 0 &&
+          filterItems.map((filter: string) => (
+            <div key={filter} className="filter-box__item">
+              <p className="job__requirement filter-box__filter">{filter}</p>
+              <button
+                className="filter-box__delete job__status--cyan"
+                onClick={() => deleteFilterItem(filter)}
+              >
+                <img src="./src/assets/icon-remove.svg" />
+              </button>
+            </div>
+          ))}
+      </div>
+      <button className="filter-box__clear" onClick={clearFilterBox}>
+        Clear
+      </button>
     </div>
   );
 };

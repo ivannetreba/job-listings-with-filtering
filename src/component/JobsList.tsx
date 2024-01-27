@@ -1,5 +1,6 @@
-import { FilterItem } from "../App";
+import { useState } from "react";
 import jobsDataArray from "../data/data.json";
+import FilterBox from "./FilterBox";
 import Job from "./Job";
 
 export interface JobData {
@@ -18,14 +19,15 @@ export interface JobData {
   tools: string[];
 }
 
-interface Props {
-  filterItems: (filter: string) => void;
-  filterArray: FilterItem;
+export interface FilterItem {
+  filterItems: string[];
 }
 
-const JobsList = ({ filterItems, filterArray }: Props) => {
+const JobsList = () => {
+  const [filterItems, setFilterItems] = useState<FilterItem>([] as FilterItem);
+
   const filteredJobsData = jobsDataArray.filter((job) => {
-    return filterArray.every((value) => {
+    return filterItems.every((value) => {
       return (
         job.role.includes(value) ||
         job.level.includes(value) ||
@@ -37,9 +39,31 @@ const JobsList = ({ filterItems, filterArray }: Props) => {
 
   return (
     <div className="job-list">
-      {filteredJobsData.map((job: JobData) => (
-        <Job key={job.id} job={job} filterItems={filterItems} />
-      ))}
+      <div className="job-list__container">
+        <FilterBox
+          filterItems={filterItems}
+          deleteFilterItem={(deletedFilter) =>
+            setFilterItems(
+              filterItems.filter((filter: string) => filter !== deletedFilter)
+            )
+          }
+          clearFilterBox={() => setFilterItems([])}
+        />
+        <div>
+          {filteredJobsData.map((job: JobData) => (
+            <Job
+              key={job.id}
+              job={job}
+              filterItems={(filter) => {
+                if (!filterItems.includes(filter)) {
+                  setFilterItems([...filterItems, filter]);
+                }
+              }}
+              filterArray={filterItems}
+            />
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

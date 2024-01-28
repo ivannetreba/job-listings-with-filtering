@@ -271,7 +271,8 @@ body {
     margin: 0 16px;
   }
   .job__requirements-box {
-    margin-left: 200px;
+    margin-left: 120px;
+    flex-wrap: nowrap;
   }
 }
 
